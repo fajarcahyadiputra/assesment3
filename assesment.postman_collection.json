@@ -1,0 +1,1076 @@
+{
+	"info": {
+		"_postman_id": "bfe955bd-0a4d-4bfd-9150-3584789ef558",
+		"name": "assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37098644"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user1@mail.com\",\r\n    \"password\": \"12345678\",\r\n    \"member_code\": \"AIS123\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/register",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user1@mail.com\",\r\n    \"password\": \"12345678\",\r\n    \"member_code\": \"AIS123\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/register",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:32:23 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:32:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"successfully\",\n    \"user\": \n    {\n            \"id\": 1,\n            \"name\": \"user 1\",\n            \"email\": \"fajarcahyadi@mail.com\",\n            \"city\": \"bekasi\",\n            \"country\": \"indonesia\",\n            \"address_detail\": \"\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-11-05T03:32:23.000000Z\",\n            \"updated_at\": \"2024-11-05T03:32:23.000000Z\"\n        }\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user1@mail.com\",\r\n\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/register",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:32:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:32:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email has already been taken. (and 2 more errors)\",\n    \"errors\": {\n        \"email\": [\n            \"The email has already been taken.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ],\n        \"member_code\": [\n            \"The member code field is required.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user1@mail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invalid Credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user1@mail.com\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/login",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:33:01 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:33:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email or password is incorrect\"\n}"
+						},
+						{
+							"name": "Success Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user1@mail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/auth/login",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:33:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:33:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged in successfully\",\n    \"user\": {\n            \"id\": 1,\n            \"name\": \"user 1\",\n            \"email\": \"fajarcahyadi@mail.com\",\n            \"city\": \"bekasi\",\n            \"country\": \"indonesia\",\n            \"address_detail\": \"\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-11-05T03:32:23.000000Z\",\n            \"updated_at\": \"2024-11-05T03:32:23.000000Z\"\n    },\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MzA4NjQwMDAsImV4cCI6MTczMDg2NzYwMCwibmJmIjoxNzMwODY0MDAwLCJqdGkiOiJvd0ZGbkRYRjFSYVB2RHdzIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.uScdaV_BvxtYfW7tqWTzd5zgbs6XXP9arTbKEVnPr0A\",\n    \"token_type\": \"Bearer\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users?page=1&limit=10&q=user 1",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "limit per page"
+								},
+								{
+									"key": "q",
+									"value": "user 1",
+									"description": "searching"
+								},
+								{
+									"key": "city",
+									"value": "test",
+									"description": "opsional",
+									"disabled": true
+								},
+								{
+									"key": "country",
+									"value": "test",
+									"description": "opsional",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users?page=1&limit=10&q=user 1",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "q",
+											"value": "user 1"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:46:19 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:46:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users?page=1&limit=10&q=user 1",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "halaman yang ingin dibuka"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "jumlah data perhalaman"
+										},
+										{
+											"key": "q",
+											"value": "user 1",
+											"description": "untuk search"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:52:38 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:52:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"user 1\",\n            \"email\": \"fajarcahyadi@mail.com\",\n            \"city\": \"bekasi\",\n            \"country\": \"indonesia\",\n            \"address_detail\": \"\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-11-05T03:32:23.000000Z\",\n            \"updated_at\": \"2024-11-05T03:32:23.000000Z\"\n        }\n    ],\n    \"pagination\": {\n        \"current_page\": 1,\n        \"total_page\": 1,\n        \"per_page\": 10,\n        \"total_data\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:55:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:55:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"successfully\",\n    \"data\": {\n            \"id\": 1,\n            \"name\": \"user 1\",\n            \"email\": \"fajarcahyadi@mail.com\",\n            \"city\": \"bekasi\",\n            \"country\": \"indonesia\",\n            \"address_detail\": \"\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-11-05T03:32:23.000000Z\",\n            \"updated_at\": \"2024-11-05T03:32:23.000000Z\"\n        }\n}"
+						},
+						{
+							"name": "User Notfound",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:58:14 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:58:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user2@mail.com\",\r\n    \"password\": \"12345678\",\r\n    \"member_code\": \"AIS1234\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user2@mail.com\",\r\n    \"password\": \"12345678\",\r\n    \"member_code\": \"AIS1234\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:59:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 03:59:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"successfully\",\n    \"data\": {\n            \"id\": 1,\n            \"name\": \"user 1\",\n            \"email\": \"fajarcahyadi@mail.com\",\n            \"city\": \"bekasi\",\n            \"country\": \"indonesia\",\n            \"address_detail\": \"\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2024-11-05T03:32:23.000000Z\",\n            \"updated_at\": \"2024-11-05T03:32:23.000000Z\"\n        }\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"email\": \"user2@mail.com\",\r\n    \"password\": \"12345678\",\r\n    \"member_code\": \"AIS1234\",\r\n    \"password_confirmation\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:00:09 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:00:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The email has already been taken. (and 1 more error)\",\n    \"errors\": {\n        \"email\": [\n            \"The email has already been taken.\"\n        ],\n        \"member_code\": [\n            \"The member code has already been taken.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"{{PREFIX}}",
+								"{{VERSION}}",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:00:51 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:00:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"successfully\"\n}"
+						},
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASEURL}}/{{PREFIX}}/{{VERSION}}/users/:id",
+									"host": [
+										"{{BASEURL}}"
+									],
+									"path": [
+										"{{PREFIX}}",
+										"{{VERSION}}",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:02:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 Nov 2024 04:02:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User not found\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
